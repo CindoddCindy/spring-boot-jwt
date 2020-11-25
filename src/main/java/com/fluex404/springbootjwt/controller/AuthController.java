@@ -59,6 +59,7 @@ public class AuthController {
                 Long.valueOf(userDetails.getId()),
                 userDetails.getUsername(),
                 userDetails.getPassword(),
+                userDetails.getEmail(),
                 role));
     }
     @PostMapping("/signup")
@@ -79,7 +80,7 @@ public class AuthController {
             roles.add(userRole);
         } else {
             strRole.forEach(role -> {
-                switch(role){
+                    switch(role){
                     case "admin":
                         Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
