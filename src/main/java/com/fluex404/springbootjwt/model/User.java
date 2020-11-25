@@ -1,6 +1,7 @@
 package com.fluex404.springbootjwt.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ import java.util.Set;
         @UniqueConstraint(columnNames = "email")
     }
 )
+@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
